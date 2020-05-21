@@ -1,0 +1,16 @@
+{
+    "name": "kubawerlos/all-tokens",
+    "require-dev": {
+        "phpunit/phpunit": "^9.1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "AllTokens\\": "./src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "./tests/"
+        }
+    }
+}
