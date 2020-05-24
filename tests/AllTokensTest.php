@@ -17,7 +17,7 @@ final class AllTokensTest extends TestCase
     /**
      * @dataProvider provideTokenIsInCollectionCases
      */
-    public function testTokenIsInCollection($constantValue): void
+    public function testTokenIsInCollection($constantValue)
     {
         $tokens = \array_filter(
             \iterator_to_array(AllTokens::getAllTokens()),
