@@ -40,7 +40,7 @@ final class AllTokensTest extends TestCase
                 continue;
             }
 
-            if ($constantName === 'T_CHARACTER') { // not used anymore (removed in PHP 7)
+            if ($constantName === 'T_CHARACTER') { // not used anymore
                 continue;
             }
 
