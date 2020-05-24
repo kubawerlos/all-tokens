@@ -1,8 +1,10 @@
 name: CI
 
 on:
-  - pull_request
-  - push
+  pull_request: ~
+  push:
+    branches:
+      - master
 
 jobs:
   test:
@@ -25,12 +27,12 @@ jobs:
         with:
           php-version: ${{ matrix.php-version }}
 
-      - name: Cache dependencies
+      - name: Cache Composer data
         uses: actions/cache@v1
         with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-cache-${{ hashFiles('**/composer.json') }}
-          restore-keys: ${{ runner.os }}-composer-cache-
+          path: $(composer config data-dir)
+          key: cache-${{ matrix.php-version }}-${{ hashFiles('**/composer.json') }}
+          restore-keys: cache-${{ matrix.php-version }}-
 
       - name: Install prestissimo
         run: composer global outdated --strict hirak/prestissimo || composer global require hirak/prestissimo
