@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of all-token.
+ *
+ * (c) 2020 Kuba Werłos
+ *
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
+ */
+
 namespace AllTokens;
 
 final class AllTokens
