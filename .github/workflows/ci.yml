@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        php-version: ['7.1', '7.2', '7.3', '7.4']
+        php-version: ['7.0', '7.1', '7.2', '7.3', '7.4']
         include:
           - os: macos-latest
             php-version: '7.4'
@@ -30,7 +30,7 @@ jobs:
       - name: Cache Composer data
         uses: actions/cache@v1
         with:
-          path: $(composer config data-dir)
+          path: ~/.composer/cache
           key: cache-${{ matrix.php-version }}-${{ hashFiles('**/composer.json') }}
           restore-keys: cache-${{ matrix.php-version }}-
 
