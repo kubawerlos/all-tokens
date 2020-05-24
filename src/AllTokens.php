@@ -37,20 +37,10 @@ final class AllTokens
 
     private static function getTemplates()
     {
-        $contents = [
-            \sprintf('<?php ;%s;', \chr(12)), // T_BAD_CHARACTER
-        ];
+        $templates = [__DIR__ . '/../template/main.php'];
 
-        foreach (
-            [
-                5 => __DIR__ . '/../template/main.php',
-                7 => __DIR__ . '/../template/php7.php',
-            ] as $phpVersion => $template
-        ) {
-            if (PHP_MAJOR_VERSION >= $phpVersion) {
-                $contents[] = file_get_contents($template);
-            }
-        }
+        $contents = \array_map('file_get_contents', $templates);
+        $contents[] = \sprintf('<?php ;%s;', \chr(12)); // T_BAD_CHARACTER
 
         return $contents;
     }

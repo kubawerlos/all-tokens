@@ -36,6 +36,14 @@ final class AllTokensTest extends TestCase
                 continue;
             }
 
+            if ($constantName === 'T_BAD_CHARACTER' && PHP_MAJOR_VERSION < 7) { // not used before PHP 7
+                continue;
+            }
+
+            if ($constantName === 'T_CHARACTER') { // not used anymore (removed in PHP 7)
+                continue;
+            }
+
             yield $constantName => [$constantValue];
         }
     }

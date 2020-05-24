@@ -1,5 +1,8 @@
 <?php
 
+declare(strict_types=1);
+enddeclare;
+
 include 'path1';
 include_once 'path2';
 require 'path3';
