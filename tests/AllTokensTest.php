@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Tests;
 
 use AllTokens\AllTokens;
@@ -35,6 +33,14 @@ final class AllTokensTest extends TestCase
 
         foreach ($tokens as $constantName => $constantValue) {
             if (\strpos($constantName, 'T_') !== 0) {
+                continue;
+            }
+
+            if ($constantName === 'T_BAD_CHARACTER' && PHP_MAJOR_VERSION < 7) { // not used before PHP 7
+                continue;
+            }
+
+            if ($constantName === 'T_CHARACTER') { // not used anymore
                 continue;
             }
 
