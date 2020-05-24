@@ -29,7 +29,7 @@ final class AllTokensTest extends TestCase
         self::assertCount(1, $tokens);
     }
 
-    public static function provideTokenIsInCollectionCases(): iterable
+    public static function provideTokenIsInCollectionCases()
     {
         $tokens = \get_defined_constants(true)['tokenizer'];
 
