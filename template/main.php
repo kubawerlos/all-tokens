@@ -8,7 +8,7 @@ include_once 'path2';
 require 'path3';
 require_once 'path4';
 
-namespace Foo;
+namespace Foo\Bar;
 
 interface I {}
 
@@ -26,8 +26,10 @@ final class C extends A implements I {
 
     var $var;
 
+    #[Attribute]
     public function f(callable $c) {
         yield from $this->func();
+        yield from $this?->func();
     }
     private function func() {
         yield 1;
