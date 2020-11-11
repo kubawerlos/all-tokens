@@ -41,8 +41,11 @@ final class C extends A implements I {
     protected function f2() {
         return static::f();
     }
-    private static function f() {
+    private static function f3() {
         return null;
+    }
+    private function f4() {
+        return namespace\Baz::f4();
     }
 }
 
