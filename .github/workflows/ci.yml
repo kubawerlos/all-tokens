@@ -37,9 +37,6 @@ jobs:
           key: cache-${{ matrix.php-version }}-${{ hashFiles('**/composer.json') }}
           restore-keys: cache-${{ matrix.php-version }}-
 
-      - name: Install prestissimo
-        run: composer global outdated --strict hirak/prestissimo || composer global require hirak/prestissimo
-
       - name: Install dependencies
         run: composer update --no-progress ${{ matrix.composer_flags }}
 
