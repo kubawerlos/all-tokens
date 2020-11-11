@@ -53,6 +53,11 @@ final class AllTokensTest extends TestCase
                 continue;
             }
 
+            // https://wiki.php.net/rfc/namespaced_names_as_token
+            if ($constantName === 'T_NS_SEPARATOR' && PHP_MAJOR_VERSION >= 8) {
+                continue;
+            }
+
             yield $constantName => [$constantValue];
         }
     }

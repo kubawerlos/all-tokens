@@ -8,7 +8,7 @@ include_once 'path2';
 require 'path3';
 require_once 'path4';
 
-namespace Foo;
+namespace Foo\Bar;
 
 interface I {}
 
@@ -26,8 +26,10 @@ final class C extends A implements I {
 
     var $var;
 
+    #[Attribute]
     public function f(callable $c) {
         yield from $this->func();
+        yield from $this?->func();
     }
     private function func() {
         yield 1;
@@ -39,8 +41,11 @@ final class C extends A implements I {
     protected function f2() {
         return static::f();
     }
-    private static function f() {
+    private static function f3() {
         return null;
+    }
+    private function f4() {
+        return namespace\Baz::f4();
     }
 }
 
@@ -133,6 +138,11 @@ switch ($x):
     case 1: echo 1; break;
     default: echo 'default';
 endswitch;
+
+match ($x) {
+    case 1: echo 1; break;
+    default: echo 'default';
+}
 
 while (false):
 endwhile;
