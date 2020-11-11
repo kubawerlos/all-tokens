@@ -134,6 +134,11 @@ switch ($x):
     default: echo 'default';
 endswitch;
 
+match ($x) {
+    case 1: echo 1; break;
+    default: echo 'default';
+}
+
 while (false):
 endwhile;
 
